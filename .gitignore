@@ -11,6 +11,7 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 
+data
 
 # Created by https://www.toptal.com/developers/gitignore/api/intellij+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=intellij+all

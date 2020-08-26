@@ -34,7 +34,9 @@ RUN apt-get -qq update > /dev/null && DEBIAN_FRONTEND=noninteractive apt-get -qq
              --install-dir=/usr/local/bin \
              --filename=composer &&\
     echo "daemon off;" >> /etc/nginx/nginx.conf &&\
-    mkdir -p /run/php
+    mkdir -p /run/php &&\
+    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash &&\
+    /bin/bash -c "source ~/.profile && nvm install node"
 
 COPY rootfs /
 
