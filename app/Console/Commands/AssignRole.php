@@ -50,6 +50,7 @@ class AssignRole extends Command
             return 0;
         }
         $user->assignRole($role);
+        $this->info("Role {$this->argument('role')} assign to {$this->argument('user')}!");
         return 0;
     }
 }
