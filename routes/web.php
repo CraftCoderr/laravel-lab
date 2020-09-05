@@ -20,3 +20,5 @@ Route::get('/admin', 'BlogController@admin')->name('admin');
 Route::post('/admin/post', 'BlogController@publish')->name('publish-post');
 Route::post('/admin/import', 'BlogController@import')->name('import-posts');
 Route::get('/admin/post/{post}/delete', 'BlogController@delete')->name('delete-post');
+Route::get('/admin/post/{post}/edit', 'BlogController@edit')->name('edit-post');
+Route::post('/admin/post/{post}', 'BlogController@update')->name('update-post');

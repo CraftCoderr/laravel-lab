@@ -42,7 +42,7 @@
                         </p>
                         @auth
                             @if (Auth::user()->can('edit article', $post))
-                                <a href="#" class="card-link">Edit</a>
+                                <a href="{{ route('edit-post', $post->id) }}" class="card-link">Edit</a>
                                 <a href="{{ route('delete-post', $post->id) }}" class="card-link">Delete</a>
                             @endif
                         @endauth

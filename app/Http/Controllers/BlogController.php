@@ -56,6 +56,15 @@ class BlogController extends Controller
         return redirect('/');
     }
 
+    public function edit($postId)
+    {
+        $post = Post::find($postId);
+        if ($post && Auth::user()->can('edit article', $post)) {
+            return view('blog.edit', ['post' => $post]);
+        }
+        return redirect('/');
+    }
+
     public function import(Request $request)
     {
         $request->validate([
@@ -92,6 +101,22 @@ class BlogController extends Controller
                 }
             }
             fclose($handle);
+        }
+        return redirect('/');
+    }
+
+    public function update($postId, Request $request)
+    {
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'text' => ['required', 'string'],
+        ]);
+
+        $post = Post::find($postId);
+        if ($post) {
+            $post->title = $request->all()['title'];
+            $post->text = $request->all()['text'];
+            $post->save();
         }
         return redirect('/');
     }
